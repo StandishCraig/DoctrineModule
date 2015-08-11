@@ -132,7 +132,7 @@ class ObjectRepository extends AbstractAdapter
         $options  = $this->options;
         $identity = $options
             ->getObjectRepository()
-            ->findOneBy(array($options->getIdentityProperty() => $this->identity));
+            ->findOneBy(array($options->getIdentityProperty() => strtolower($this->identity)));
 
         if (!$identity) {
             $this->authenticationResultInfo['code']       = AuthenticationResult::FAILURE_IDENTITY_NOT_FOUND;
